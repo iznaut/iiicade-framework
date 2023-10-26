@@ -1,6 +1,6 @@
-extends Sprite
+extends Sprite2D
 
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		position += event.speed / 100
+		position += event.velocity / 100

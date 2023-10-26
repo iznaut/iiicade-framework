@@ -3,14 +3,14 @@ extends Node2D
 
 # "export" variables can be set per instance of an object
 # each sprite should have a different player_index set in editor
-export var player_index = 0
+@export var player_index = 0
 
 
 # this function is run when the player sprite is created
 func _ready():
 	# this tells the Manager to call us when a player is activated or deactivated (due to idling for too long)
-	Manager.connect("player_activated", self, "_on_player_activated")
-	Manager.connect("player_idled", self, "_on_player_idled")
+	Manager.connect("player_activated", Callable(self, "_on_player_activated"))
+	Manager.connect("player_idled", Callable(self, "_on_player_idled"))
 
 
 # this function runs every "tick"

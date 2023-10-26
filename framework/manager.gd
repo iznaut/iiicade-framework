@@ -26,7 +26,7 @@ func _ready() -> void:
 	var timers = get_children()
 
 	for i in range(timers.size()):
-		timers[i].connect("timeout", self, "_on_player_timeout", [i])
+		timers[i].connect("timeout", Callable(self, "_on_player_timeout").bind(i))
 	
 	# also hide the mouse cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
